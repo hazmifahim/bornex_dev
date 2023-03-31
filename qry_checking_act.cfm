@@ -62,6 +62,37 @@
 		</cfcatch>
 	</cftry>	
 
+	<cftry>
+		<cfquery datasource="bornex_major">
+			SELECT `id` FROM `vendor`
+		</cfquery>
+		<cfcatch type="database">
+			<br>Auto generated
+			<br>CREATE TABLE `vendor`
+			<cfquery datasource="bornex_major">
+				CREATE TABLE `vendor` (
+					`id` int NOT NULL AUTO_INCREMENT,
+					`name` varchar(150) DEFAULT NULL,
+					`address` varchar(500) DEFAULT NULL,
+					`lt_status_id` int DEFAULT NULL,
+					`created_id` int DEFAULT NULL,
+					`created_by` varchar(250) DEFAULT NULL,
+					`created_vendor` varchar(250) DEFAULT NULL,
+					`created_dt` datetime DEFAULT NULL,
+					`updated_id` int DEFAULT NULL,
+					`updated_by` varchar(250) DEFAULT NULL,
+					`updated_vendor` varchar(250) DEFAULT NULL,
+					`updated_dt` datetime DEFAULT NULL,
+					`deleted_id` int DEFAULT NULL,
+					`deleted_by` varchar(250) DEFAULT NULL,
+					`deleted_vendor` varchar(250) DEFAULT NULL,
+					`deleted_dt` datetime DEFAULT NULL,
+					PRIMARY KEY (`id`)
+				) ENGINE=InnoDB
+			</cfquery>     
+		</cfcatch>
+	</cftry>	
+
 	<br><br>End of checking
 
 </cfoutput>
