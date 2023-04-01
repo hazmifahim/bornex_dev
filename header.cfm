@@ -18,6 +18,7 @@
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
 	<link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+	<link rel="stylesheet" href="plugins/datatable/datatables.min.css">
   
 	<!-- FAVICON -->
 	<link href="img/favicon.png" rel="shortcut icon">

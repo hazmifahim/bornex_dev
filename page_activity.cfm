@@ -82,7 +82,15 @@
 
 			</div>
 			<div class="col-md-9">
-				<div class="category-search-filter">
+				<div class="box-body">
+					<cfset tableid="table_asset">
+						<table id="#tableid#" class="d-none" cellspacing="0" width="100%">
+							<thead>
+								<th></th>
+							</thead>
+						</table>
+				</div>
+				<!--- <div class="category-search-filter">
 					<div class="row">
 						<div class="col-md-6">
 							<strong>Short</strong>
@@ -120,7 +128,6 @@
 								<div class="product-item bg-light">
 									<div class="card">
 										<div class="thumb-content">
-											<!-- <div class="price">$200</div> -->
 											<a href="">
 												<img class="card-img-top img-fluid" src="images/products/products-3.jpg" alt="Card image cap">
 											</a>
@@ -171,7 +178,7 @@
 							</li>
 						</ul>
 					</nav>
-				</div>
+				</div> --->
 			</div>
 		</div>
 	</div>
@@ -265,7 +272,49 @@
 
 <cfinclude template="scripts.cfm">
 
-</body>
+<script>
+	var #table_id# = $('###table_id#').DataTable({
+			"dom": '<"row"<"col-sm-6 container-left toolbar"><"col-sm-6 container-right text-right" <"##search_style" f >>><"row display-flex output"><"row"<"col-sm-5"i><"col-sm-7"p>>',
+			"searching": true,
+			"language": { search: "" },
+			"responsive": true,
+			"processing": false,
+			"serverSide": true,
+			"pageLength": 9,
+			
+			"ajax": $.fn.dataTable.pipeline({
+				url: "page_activity_data.cfm",
+			}),
+			"drawCallback": function (settings) {
+				var api = this.api();
+				var rows = api.rows({
+						page: 'current'
+				}).data();
+				var html = '';
+				for (var i = 0; i < rows.length; i++) {
+						var image = '';
+						if(rows[i][3]){
+								image = rows[i][3]
+						} else {
+								image = "no_image.png"
+						}
 
+						html += '<div class="col-sm-6 col-md-4">';
+						html += '<div class="card testimonial-card" id=' + rows[i][0] + ' onclick="asset_info('+ rows[i][0] +')" style="width: 250px; height: 300px; margin-bottom: 10px;">\n'
+						html += '	<div class="card-up bg-aqua-gradient"></div>\n'
+						html += '	<div class="avatar mx-auto white"><img src="images/gambar/' + image + '" class="card-img-top" style="object-fit:contain"></div>\n'
+						html += '	<div class="card-body" style="margin-top:0px;">\n'
+						html += '		<h6 class="card-title dark-grey-text" style="font-size:14px"><strong>' + rows[i][1] + '</strong></h6>\n'
+						html += '	</div>\n'
+						html += '</div>\n'
+						html += '</div>\n';
+				}
+				$(".output").html(html)
+				$("##asset_total_code").text(api.page.info().recordsTotal)
+			}
+		});
+</script>
+
+</body>
 </html>
 </cfoutput>
