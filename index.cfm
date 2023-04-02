@@ -131,7 +131,7 @@
 			<div class="col-md-12">
 				<!-- Header Contetnt -->
 				<div class="content-block">
-					<h1>Buy & Sell Near You </h1>
+					<h1>Welcome to BornEx</h1>
 					<p>Join the millions who buy and sell from each other <br> everyday in local communities around the world</p>
 					<div class="short-popular-category-list text-center">
 						<h2>Popular Category</h2>
