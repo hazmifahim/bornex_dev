@@ -273,7 +273,7 @@
 <cfinclude template="scripts.cfm">
 
 <script>
-	var #table_id# = $('###table_id#').DataTable({
+	var #tableid# = $('###tableid#').DataTable({
 			"dom": '<"row"<"col-sm-6 container-left toolbar"><"col-sm-6 container-right text-right" <"##search_style" f >>><"row display-flex output"><"row"<"col-sm-5"i><"col-sm-7"p>>',
 			"searching": true,
 			"language": { search: "" },
