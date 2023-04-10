@@ -91,7 +91,22 @@
 				) ENGINE=InnoDB
 			</cfquery>     
 		</cfcatch>
-	</cftry>	
+	</cftry>
+	
+	<cftry>
+		<cfquery datasource="bornex_major">
+			SELECT `images` FROM `activity` LIMIT 1
+		</cfquery>
+		<cfcatch type="database">
+			<br>Auto generated
+			<br>ALTER TABLE `activity`
+			<br>ADD COLUMN `images` VARCHAR(250) DEFAULT NULL;
+			<cfquery datasource="bornex_major">
+				ALTER TABLE `activity`  
+				ADD COLUMN `images` VARCHAR(250) DEFAULT NULL;
+			</cfquery>     
+		</cfcatch>
+	</cftry> 
 
 	<br><br>End of checking
 

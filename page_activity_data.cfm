@@ -1,7 +1,7 @@
 <cfsetting showDebugOutput="No">
 
 <cfset dataSource= 'bornex_major'>
-<cfset tableFields= ['id','title','description','price']>
+<cfset tableFields= ['id','title','description','price','images']>
 <cfset noOfTableFields = ArrayLen(tableFields)>
 <cfset searchFields= ['fullname', 'stay']>
 <cfset noOfSearchFields = ArrayLen(searchFields)>

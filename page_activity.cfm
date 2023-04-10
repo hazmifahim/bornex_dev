@@ -66,7 +66,7 @@
 				</div>
 
 				<div class="widget category-list">
-					<h4 class="widget-header">Nearby</h4>
+					<h4 class="widget-header">Location</h4>
 					<ul class="category-list">
 						<li><a href="category.html">New York <span>93</span></a></li>
 						<li><a href="category.html">New Jersy <span>233</span></a></li>
@@ -292,9 +292,10 @@
 				}).data();
 				var html = '';
 				for (var i = 0; i < rows.length; i++) {
+					console.log(rows[i][4]);
 						var image = '';
-						if(rows[i][3]){
-								image = rows[i][3]
+						if(rows[i][4]){
+								image = rows[i][4]
 						} else {
 								image = "no_image.png"
 						}
@@ -302,9 +303,9 @@
 						html += '<div class="col-sm-6 col-md-4">';
 						html += '<div class="card testimonial-card" id=' + rows[i][0] + ' onclick="asset_info('+ rows[i][0] +')" style="width: 250px; height: 300px; margin-bottom: 10px;">\n'
 						html += '	<div class="card-up bg-aqua-gradient"></div>\n'
-						html += '	<div class="avatar mx-auto white"><img src="images/gambar/' + image + '" class="card-img-top" style="object-fit:contain"></div>\n'
+						html += '	<div class="avatar mx-auto white"><img src="images/category/' + image + '" class="card-img-top" style="object-fit:contain"></div>\n'
 						html += '	<div class="card-body" style="margin-top:0px;">\n'
-						html += '		<h6 class="card-title dark-grey-text" style="font-size:14px"><strong>' + rows[i][1] + '</strong></h6>\n'
+						html += '		<h6 class="card-title dark-grey-text" style="font-size:14px;text-align:center"><strong>' + rows[i][1] + '</strong></h6>\n'
 						html += '	</div>\n'
 						html += '</div>\n'
 						html += '</div>\n';

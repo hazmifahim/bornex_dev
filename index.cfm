@@ -1,3 +1,5 @@
+<cfoutput>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +81,7 @@
 					<a class="navbar-brand" href="index.html">
 						<img src="images/logo.png" alt="">
 					</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="##navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -102,15 +104,15 @@
 								</a>
 								<!-- Dropdown list -->
 								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<a class="dropdown-item" href="#">Something else here</a>
+									<a class="dropdown-item" href="##">Action</a>
+									<a class="dropdown-item" href="##">Another action</a>
+									<a class="dropdown-item" href="##">Something else here</a>
 								</div>
 							</li> --->
 						</ul>
 						<ul class="navbar-nav ml-3 mt-10">
 							<li class="nav-item">
-								<a class="nav-link add-button" href="#" style="border-radius:15px"> Book Now!</a>
+								<a class="nav-link add-button" href="payment.cfm" style="border-radius:15px"> Book Now!</a>
 							</li>
 						</ul>
 					</div>
@@ -156,17 +158,17 @@
 				</div>
 				<!-- Advance Search -->
 				<div class="advance-search">
-					<form action="#">
+					<form action="##">
 						<div class="row">
 							<!-- Store Search -->
 							<div class="col-lg-6 col-md-12">
 								<div class="block d-flex">
-									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for store">
+									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search">
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-12">
 								<div class="block d-flex">
-									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for store">
+									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search">
 									<!-- Search Button -->
 									<button class="btn btn-main">SEARCH</button>
 								</div>
@@ -187,24 +189,17 @@
 ====================================-->
 
 <section class="regular slider">
-    <div>
-	  <img src="http://placehold.it/350x300?text=1">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=2">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=3">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=4">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=5">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=6">
-    </div>
+	<cfquery name="get_img" datasource="bornex_major">
+		SELECT `images`, `title` FROM activity
+	</cfquery>
+	<cfloop query="get_img">
+		<div>
+			<figure>
+				<img src="images/category/#get_img.images#" width="350" height="230">
+				<figcaption style="text-align:center">#title#</figcaption>
+			</figure>
+		</div>
+	</cfloop>
 </section>
 
 <!--===========================================
@@ -502,11 +497,11 @@
         <div class="block">
           <h4>Site Pages</h4>
           <ul>
-            <li><a href="#">Boston</a></li>
-            <li><a href="#">How It works</a></li>
-            <li><a href="#">Deals & Coupons</a></li>
-            <li><a href="#">Articls & Tips</a></li>
-            <li><a href="#">Terms of Services</a></li>
+            <li><a href="##">Boston</a></li>
+            <li><a href="##">How It works</a></li>
+            <li><a href="##">Deals & Coupons</a></li>
+            <li><a href="##">Articls & Tips</a></li>
+            <li><a href="##">Terms of Services</a></li>
           </ul>
         </div>
       </div>
@@ -515,11 +510,11 @@
         <div class="block">
           <h4>Admin Pages</h4>
           <ul>
-            <li><a href="#">Boston</a></li>
-            <li><a href="#">How It works</a></li>
-            <li><a href="#">Deals & Coupons</a></li>
-            <li><a href="#">Articls & Tips</a></li>
-            <li><a href="#">Terms of Services</a></li>
+            <li><a href="##">Boston</a></li>
+            <li><a href="##">How It works</a></li>
+            <li><a href="##">Deals & Coupons</a></li>
+            <li><a href="##">Articls & Tips</a></li>
+            <li><a href="##">Terms of Services</a></li>
           </ul>
         </div>
       </div>
@@ -584,6 +579,7 @@
 </script>
 
 </html>
+</cfoutput>
 
 
 
